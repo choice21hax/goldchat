@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Log Page</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="log-container">
+    <div class="log-header">
+      <h2>Action Logs</h2>
+      <a href="index.html" class="back-button">Back to Chat</a>
+    </div>
+    <div id="log-box" class="log-box">
+      <!-- Logs will appear here -->
+    </div>
+  </div>
+
+  <script>
+    // Function to display logs
+    const displayLogs = () => {
+      const logBox = document.getElementById('log-box');
+      if (localStorage && localStorage.getItem('chatLogs')) {
+        const logs = JSON.parse(localStorage.getItem('chatLogs'));
+        logs.forEach(log => {
+          const logElement = document.createElement('div');
+          logElement.classList.add('log-message');
+          logElement.textContent = log;
+          logBox.appendChild(logElement);
+        });
+      } else {
+        const noLogsMessage = document.createElement('div');
+        noLogsMessage.classList.add('log-message');
+        noLogsMessage.textContent = "No logs available.";
+        logBox.appendChild(noLogsMessage);
+      }
+    };
+
+    // Display logs when the page loads
+    window.onload = displayLogs;
+  </script>
+</body>
+</html>
