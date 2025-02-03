@@ -18,6 +18,8 @@
       <input type="text" id="chat-input" placeholder="Type a message..." />
       <button id="send-btn">Send</button>
     </div>
+    <!-- Button to go to log page -->
+    <a href="log.html" class="log-button">View Logs</a>
   </div>
 
   <!-- Firebase JS SDK for modules -->
@@ -75,8 +77,23 @@
           timestamp: Date.now(),
         });
 
+        // Log the action
+        logAction("Message sent: " + message);
+
         // Clear the input field
         chatInput.value = '';
+      }
+    };
+
+    // Function to log actions to the log page
+    const logAction = (log) => {
+      if (localStorage) {
+        // Retrieve existing logs or initialize an empty array
+        let logs = JSON.parse(localStorage.getItem('chatLogs')) || [];
+        // Add new log
+        logs.push(log);
+        // Save back to localStorage
+        localStorage.setItem('chatLogs', JSON.stringify(logs));
       }
     };
 
