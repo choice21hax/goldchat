@@ -1,0 +1,142 @@
+:root {
+    --bg-dark: #121212;
+    --bg-light: #f4f4f4;
+    --text-dark: #ffffff;
+    --text-light: #000000;
+    --accent-color: #ffd700;
+    --message-bg-dark: #2c2c2c;
+    --message-bg-light: #e0e0e0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: var(--bg-dark);
+    color: var(--text-dark);
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.chat-container {
+    max-width: 600px;
+    margin: 0 auto;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    background-color: var(--message-bg-dark);
+}
+
+.user-profile {
+    display: flex;
+    align-items: center;
+}
+
+.profile-pic {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.user-status {
+    color: green;
+    margin-left: 5px;
+}
+
+.chat-window {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.messages-container {
+    flex-grow: 1;
+    overflow-y: auto;
+    padding: 10px;
+}
+
+.message-input-area {
+    padding: 10px;
+    background-color: var(--message-bg-dark);
+}
+
+#message-input {
+    width: 100%;
+    min-height: 50px;
+    background-color: var(--bg-dark);
+    color: var(--text-dark);
+    border: 1px solid var(--accent-color);
+    border-radius: 4px;
+    padding: 10px;
+}
+
+.input-actions {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+
+#emoji-picker {
+    position: absolute;
+    bottom: 60px;
+    right: 10px;
+}
+
+.hidden {
+    display: none;
+}
+
+.login-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background-color: var(--bg-dark);
+    padding: 20px;
+    border-radius: 8px;
+    width: 300px;
+}
+
+#login-form input {
+    width: 100%;
+    margin: 10px 0;
+    padding: 10px;
+    background-color: var(--message-bg-dark);
+    color: var(--text-dark);
+    border: 1px solid var(--accent-color);
+    border-radius: 4px;
+}
+
+/* Light Mode Styles */
+body.light-mode {
+    background-color: var(--bg-light);
+    color: var(--text-light);
+}
+
+body.light-mode header,
+body.light-mode .message-input-area {
+    background-color: var(--message-bg-light);
+}
+
+body.light-mode #message-input,
+body.light-mode .modal-content,
+body.light-mode #login-form input {
+    background-color: var(--bg-light);
+    color: var(--text-light);
+}
