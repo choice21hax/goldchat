@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gold Chat Lite</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="assets/favicon.ico">
+    <script src="https://unpkg.com/@emoji-mart/data"></script>
+    <script src="https://unpkg.com/emoji-mart@latest/dist/index.js"></script>
+</head>
+<body>
+    <div class="chat-container">
+        <header>
+            <div class="user-profile">
+                <img src="assets/profile.png" alt="Profile" class="profile-pic">
+                <span class="username">Username</span>
+                <span class="status online">●</span>
+            </div>
+            <button id="theme-toggle">Toggle Theme</button>
+        </header>
+
+        <main class="chat-window">
+            <div class="messages-container">
+                <!-- Messages will be dynamically loaded here -->
+            </div>
+
+            <div class="typing-indicator">
+                <span>Someone is typing...</span>
+            </div>
+
+            <div class="message-input-area">
+                <textarea id="message-input" placeholder="Type a message (Markdown supported)"></textarea>
+                <div class="input-controls">
+                    <button id="emoji-picker-btn">😊</button>
+                    <button id="send-message">Send</button>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="chat.js"></script>
+</body>
+</html>
